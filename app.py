@@ -14,4 +14,8 @@ if hist_button: # se o botão for clicado
      
          # exibir um gráfico Plotly interativo
          st.plotly_chart(fig, use_container_width=True)
+
+
+         fig = px.scatter(car_data, x="odometer", y="price") # criar um gráfico de dispersão
+         fig.show() # exibindo
      

@@ -1,17 +1,18 @@
+import streamlit as st
 import pandas as pd
 import plotly.express as px
-import streamlit as st
 
-# lendo arquivo 
+# Carregar os dados
 car_data = pd.read_csv('vehicles.csv')
 
 # Cabeçalho
 st.header('Análise de Dados de Veículos')
 
-# Caixa de seleção para escolher o tipo de gráfico
-option = st.selectbox('Selecione o tipo de gráfico:', ('Histograma', 'Gráfico de Dispersão'))
+# Botão para escolher o tipo de gráfico
+selected_chart = st.radio('Selecione o tipo de gráfico:', ('Histograma', 'Gráfico de Dispersão'))
+
 # Verificar a escolha do usuário e criar o gráfico correspondente
-if option == 'Histograma':
+if selected_chart == 'Histograma':
     # Histograma mais elaborado com cores
     hist = px.histogram(car_data, x='odometer', color='year', title='Histograma de Odômetro com Cores',
                         labels={'odometer': 'Odômetro'})
